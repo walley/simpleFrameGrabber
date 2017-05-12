@@ -122,9 +122,11 @@ static void fpsthink(){
 	framespersecond = 1000.f / framespersecond;
 
 }
-static int readC(int fd,void *buffer,int nbyte){
-	static int oldN;
-	if(oldN!=nbyte){
+static int readC(int fd,void *buffer,int nbyte)
+{
+
+	static int oldN; //what does this do?
+	if(oldN!=nbyte){ // oldN is 0 (if compiler zeroes it) so this is allways true
 		struct termios options;
 		tcgetattr(fd, &options);
 		options.c_cc[VMIN] = nbyte;/* block untill n bytes are received */

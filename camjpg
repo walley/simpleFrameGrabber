@@ -1,0 +1,2 @@
+#!/bin/sh
+./grab 640 480 jpeg 115200 /dev/ttyUSB0 1
